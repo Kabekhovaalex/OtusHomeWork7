@@ -48,17 +48,18 @@ public class UITest {
 
     @Test
     public void checkCountCoursesInQASectionTest() {
+        log.info("Открыли главную страницу");
         new MainPage(driver).open();
         HeaderPopup headerSubMenuPopup = new HeaderPopup(driver);
-
-
         new HeaderMenuComponent(driver)
                 .moveCursorToHeaderItem(HeaderMenuItemData.LEARNING);
+        log.info("Открыли Обучение и перешли в Тестирование");
         headerSubMenuPopup.popupShouldBeVisible(HeaderMenuItemData.LEARNING)
                 .clickSubMenuItemCoursesName(SubMenuCategoryCourseItemData.TESTING, MenuCategory.TEST);
+        log.info("Проверяем выбран чекбокс Тестирование");
         new CourseFilterComponent(driver)
                 .checkСourseFilterComponent(CategoryData.TESTING, true);
-
+        log.info("Проверяем отображение курсов и их количество");
         new CourseCatalog(driver)
                 .checkVisibleCourses()
                 .checkCountCourses(10);
@@ -69,22 +70,18 @@ public class UITest {
         String subTitleCourse = "Прокачайте свои навыки автоматизации тестирования на Java";
         String durationCourse = "4 месяца";
         String formatCourse = "Онлайн";
-
-        new MainPage(driver)
-                .open();
-
+        log.info("Открыли главную страницу");
+        new MainPage(driver).open();
         HeaderPopup headerSubMenuPopup = new HeaderPopup(driver);
-
-
         new HeaderMenuComponent(driver)
                 .moveCursorToHeaderItem(HeaderMenuItemData.LEARNING);
-
+        log.info("Открыли Обучение и перешли в Тестирование");
         headerSubMenuPopup.popupShouldBeVisible(HeaderMenuItemData.LEARNING)
                 .clickSubMenuItemCoursesName(SubMenuCategoryCourseItemData.TESTING, MenuCategory.TEST);
-
+        log.info("Выбрали курс");
         new CourseCatalog(driver)
                 .clickCourse(CoursesTestingData.JAVA_QA_PRO.getName());
-
+        log.info("Проверяем информацию о курсе");
         new CoursePage(driver)
                 .checkTitleCourse(titleCourse, CoursesTitleData.JAVA_QA_PRO)
                 .checkSubTitleCourse(subTitleCourse, CoursesSubTitleData.JAVA_QA_PRO)
@@ -95,35 +92,34 @@ public class UITest {
 
     @Test
     public void checkEventsDateTest() {
-        new MainPage(driver)
-                .open();
+        log.info("Открыли главную страницу");
+        new MainPage(driver).open();
         HeaderPopup headerSubMenuPopup = new HeaderPopup(driver);
         new HeaderMenuComponent(driver)
                 .moveCursorToHeaderItem(HeaderMenuItemData.LEARNING);
-
+        log.info("Перешли в раздел Календарь мероприятий");
         headerSubMenuPopup.popupShouldBeVisible(HeaderMenuItemData.LEARNING)
                 .clickSubMenuItemCoursesName(SubMenuCategoryCourseItemData.LESSON_CALENDAR, MenuCategory.EVENTS_CALENDAR);
-
+        log.info("Проверяем отображение карточек и дату мероприятий");
         new EventsCatalog(driver)
                 .checkVisibleEvents()
                 .checkEventsDate();
-
     }
 
     @Test
     public void checkSortEventsTest() {
-
-        new MainPage(driver)
-                .open();
-
+        log.info("Открыли главную страницу");
+        new MainPage(driver).open();
         HeaderPopup headerSubMenuPopup = new HeaderPopup(driver);
         new HeaderMenuComponent(driver)
                 .moveCursorToHeaderItem(HeaderMenuItemData.LEARNING);
-
+        log.info("Перешли в раздел Календарь мероприятий");
         headerSubMenuPopup.popupShouldBeVisible(HeaderMenuItemData.LEARNING)
                 .clickSubMenuItemCoursesName(SubMenuCategoryCourseItemData.LESSON_CALENDAR, MenuCategory.EVENTS_CALENDAR);
+        log.info("Выставляем фильтр Открытый вебинар");
         new EventsCatalog(driver)
                 .sortEvents(EventsSortData.OPENWEBINAR);
+        log.info("Проверяем отображение мероприятий с пометкой Открытый вебинар");
         new EventsPage(driver)
                 .checkSortByEvent(EventsSortData.OPENWEBINAR);
 
