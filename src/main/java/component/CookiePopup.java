@@ -9,13 +9,13 @@ public class CookiePopup extends AbsBaseComponent{
         super(driver);
     }
 
-    //@FindBy(css = "button[type=button]")
 
     @FindBy(xpath = "//div[contains(text(),'OK')]")
     private WebElement buttonCookie;
 
     public CookiePopup clickOnButtonCookie() {
-        webDriverWait.waitForVisibleElement(buttonCookie);
+//        webDriverWait.waitForVisibleElement(buttonCookie);
+//        webDriverWait.waitForClickableElement(buttonCookie);
         buttonCookie.click();
         return this;
     }

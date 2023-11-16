@@ -2,10 +2,11 @@ package data.menu;
 
 public enum SubMenuCategoryCourseItemData implements ISubMenu{
 
-    TESTING("Тестирование"),
-    LESSON_CALENDAR("Календарь мероприятий");
+    TESTING("/categories/testing"),
 
+    LESSON_CALENDAR("/events/near");
     private String name;
+
 
     SubMenuCategoryCourseItemData(String name) {
         this.name = name;
@@ -14,4 +15,6 @@ public enum SubMenuCategoryCourseItemData implements ISubMenu{
     public String getName() {
         return name;
     }
+
+
 }

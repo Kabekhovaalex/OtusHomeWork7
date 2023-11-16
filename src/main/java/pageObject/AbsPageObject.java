@@ -28,4 +28,9 @@ public abstract class AbsPageObject {
     protected List<WebElement> $$(By selector) {
         return driver.findElements(selector);
     }
+
+    public void actionsMoveElement(WebElement element){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
+    }
 }

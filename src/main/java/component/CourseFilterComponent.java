@@ -10,7 +10,7 @@ public class CourseFilterComponent extends AbsBaseComponent{
         super(driver);
     }
     private String courseCategoryLocator = "//div[./label[text()='%s']]//input";
-    ////main[contains(@class,'sc-1j17uuq-1 dPcKhb')] /child::section/descendant::section/descendant::div/div[contains(text(), 'Тестирование')]
+
     public CourseFilterComponent checkСourseFilterComponent(CategoryData categoryData, boolean state) {
 
         String locator = String.format(courseCategoryLocator, categoryData.getName());

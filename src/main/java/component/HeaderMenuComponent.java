@@ -11,9 +11,7 @@ public class HeaderMenuComponent extends AbsBaseComponent{
     }
 
     public HeaderMenuComponent moveCursorToHeaderItem(HeaderMenuItemData headerMenuItemData) {
-        //  //span[contains(@title,'Обучение')]
         String selector = String.format("[title='%s']", headerMenuItemData.getName());
-        //String selector = String.format("[data-name='%s'].header3__nav-item", headerMenuItemData.getName());
         actions
                 .moveToElement($(By.cssSelector(selector)))
                 .build()

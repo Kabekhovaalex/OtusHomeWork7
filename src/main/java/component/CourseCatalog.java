@@ -24,13 +24,12 @@ public class CourseCatalog extends AbsBaseComponent {
 
     public CourseCatalog checkVisibleCourses() {
 
-        //webDriverWait.waitForVisibleElement(ShowMoreButtonLocator);
+
         for (WebElement element : coursesListLocator) {
             Assertions.assertTrue(element.isDisplayed());
         }
-        new CookiePopup(driver)
-                .clickOnButtonCookie();
-        //ShowMoreButtonLocator.click();
+//        new CookiePopup(driver)
+//                .clickOnButtonCookie();
         return this;
     }
 
